@@ -78,6 +78,13 @@
 			<artifactId>camel-http-common</artifactId>
 			<version>2.20.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jetty -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jetty</artifactId>
+			<version>2.20.1</version>
+		</dependency>
+
 
 		<!--<dependency>-->
 			<!--<groupId>javax.servlet</groupId>-->
