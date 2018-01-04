@@ -23,7 +23,7 @@ public class RestReaderApplication implements CommandLineRunner {
 	public void run(String... args) {
 
 		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
-		startEndpt.sendBody(null);
+		// startEndpt.sendBody(null);
 
 		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());
@@ -31,7 +31,12 @@ public class RestReaderApplication implements CommandLineRunner {
 		/*
 		 * API style invoking rest endpoint
 		 */
-//		Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086/rest/clubmembers", new MyProcessor());
-//		System.out.println(out.getOut().getBody());
+		Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086/rest/clubmembers", new MyProcessor());
+
+		/* you can read from inputStream with
+		 * IOUtils.toString((InputStream)((ResponseImpl)out.getOut().getBody()).getEntity())
+		 */
+
+		System.out.println(out.getOut().getBody());
 	}
 }

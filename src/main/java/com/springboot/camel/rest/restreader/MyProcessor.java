@@ -18,7 +18,7 @@ public class MyProcessor implements Processor {
         /*
          * not needed if the route use inOut() method call
          */
-        //exchange.setPattern(ExchangePattern.InOut);
+        exchange.setPattern(ExchangePattern.InOut);
 
         Message inMessage = exchange.getIn();
 
@@ -29,7 +29,7 @@ public class MyProcessor implements Processor {
         inMessage.setHeader(Exchange.HTTP_METHOD, "GET");
 
         // Specify the response class , cxfrs will use InputStream as the response object type
-        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, String.class);
+        // inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, String.class);
 
         /*
          *  set the relative path, if you only set domain address in end point uri like
