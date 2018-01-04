@@ -1,0 +1,6 @@
+spring:
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:sqlserver://localhost:1433;databaseName=Wellness
+    username: sa
+    password: Passw0rd
