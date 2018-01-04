@@ -15,10 +15,16 @@ public class MyProcessor implements Processor {
     public void process(Exchange exchange){
         System.out.println("get called: " + exchange.getIn().getBody());
 
-        exchange.setPattern(ExchangePattern.InOut);
+        /*
+         * not needed if the route use inOut() method call
+         */
+        //exchange.setPattern(ExchangePattern.InOut);
+
         Message inMessage = exchange.getIn();
+
         // using the http central client API
-        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_USING_HTTP_API, Boolean.TRUE);
+        // inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_USING_HTTP_API, Boolean.TRUE);
+
         // set the Http method
         inMessage.setHeader(Exchange.HTTP_METHOD, "GET");
 

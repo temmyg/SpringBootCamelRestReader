@@ -1,9 +1,6 @@
 package com.springboot.camel.rest.restreader;
 
-import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Produce;
-import org.apache.camel.ProducerTemplate;
+import org.apache.camel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,11 +22,16 @@ public class RestReaderApplication implements CommandLineRunner {
 
 	public void run(String... args) {
 
-		// startEndpt.sendBody(null);
-		// "cxfrs://http://localhost:8086/rest/clubmembers"
+		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
+		startEndpt.sendBody(null);
+
+		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());
 
-		Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086/rest/clubmembers", new MyProcessor());
-		System.out.println(out.getOut().getBody());
+		/*
+		 * API style invoking rest endpoint
+		 */
+//		Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086/rest/clubmembers", new MyProcessor());
+//		System.out.println(out.getOut().getBody());
 	}
 }
