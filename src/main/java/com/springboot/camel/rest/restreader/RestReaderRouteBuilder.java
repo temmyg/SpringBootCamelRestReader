@@ -18,7 +18,7 @@ public class RestReaderRouteBuilder extends RouteBuilder{
 //        .to("jetty:http://localhost:8086/rest/clubmembers")
 //        .to("bean:persistenceBean?method=persistIncomingData");
 
-//        from("direct:start").
+//        from("direct:start").setHeader()
 //        to("cxfrs://http://localhost:8086/rest/clubmembers")
 //                .to("bean:persistenceBean?method=persistIncomingData");
     }

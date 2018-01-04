@@ -24,7 +24,8 @@ public class RestReaderApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args) {
-		//startEndpt.sendBody(null);
+
+		// startEndpt.sendBody(null);
 		// "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());
 

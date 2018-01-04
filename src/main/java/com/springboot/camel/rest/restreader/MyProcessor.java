@@ -29,7 +29,7 @@ public class MyProcessor implements Processor {
          *  set the relative path, if you only set domain address in end point uri like
          *  this: cxfrs://http://localhost:8086
          */
-        inMessage.setHeader(Exchange.HTTP_PATH, "/rest/clubmembers");
+       // inMessage.setHeader(Exchange.HTTP_PATH, "/rest/clubmembers");
 
         /*
          * pass data to inMessage body
