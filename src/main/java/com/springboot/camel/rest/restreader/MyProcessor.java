@@ -1,10 +1,9 @@
 package com.springboot.camel.rest.restreader;
 
-import model.ClubMember;
+import com.springboot.camel.rest.restreader.model.ClubMember;
 import org.apache.camel.*;
 import org.apache.camel.component.cxf.common.message.CxfConstants;
-import org.apache.camel.impl.DefaultEndpoint;
-import org.apache.camel.impl.DefaultProducer;
+import org.apache.cxf.jaxrs.utils.ParameterizedCollectionType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,13 +22,18 @@ public class MyProcessor implements Processor {
         Message inMessage = exchange.getIn();
 
         // using the http central client API
-        // inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_USING_HTTP_API, Boolean.TRUE);
+         inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_USING_HTTP_API, Boolean.TRUE);
 
         // set the Http method
         inMessage.setHeader(Exchange.HTTP_METHOD, "GET");
 
+        inMessage.setHeader(Exchange.ACCEPT_CONTENT_TYPE, "application/json");
         // Specify the response class , cxfrs will use InputStream as the response object type
-        // inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, String.class);
+        /*
+         * no need to set response class if you route it to a bean endpoint with a method paramter type string
+         */
+//        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, List.class);
+//        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_GENERIC_TYPE, new ParameterizedCollectionType(ClubMember.class));
 
         /*
          *  set the relative path, if you only set domain address in end point uri like

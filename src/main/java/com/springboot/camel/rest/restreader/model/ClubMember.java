@@ -1,4 +1,4 @@
-package model;
+package com.springboot.camel.rest.restreader.model;
 
 public class ClubMember {
     private String firstName;
