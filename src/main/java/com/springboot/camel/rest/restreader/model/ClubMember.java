@@ -2,11 +2,7 @@ package com.springboot.camel.rest.restreader.model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "healthmember")
@@ -16,8 +12,10 @@ public class ClubMember {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long Id;
 
-    private String firstname;
-    private String lastname;
+    //@Column(name = "firstname")
+    private String firstName;
+
+    private String lastName;
     private String occupation;
     private Integer age;
 
@@ -30,11 +28,11 @@ public class ClubMember {
     }
 
     public String getFirstName() {
-        return firstname;
+        return firstName;
     }
 
     public String getLastName() {
-        return lastname;
+        return lastName;
     }
 
     public String getOccupation() {
@@ -45,11 +43,11 @@ public class ClubMember {
         this.occupation = occupation;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstname = firstName;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastname = lastName;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 }

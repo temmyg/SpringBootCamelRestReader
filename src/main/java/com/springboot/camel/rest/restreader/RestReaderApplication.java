@@ -36,11 +36,12 @@ public class RestReaderApplication implements CommandLineRunner {
 
 		// FooConcrete objFoo = new FooConcrete();
 
-		List<ClubMember> members = (List<ClubMember>) repo.findAll();
+//		List<ClubMember> members = (List<ClubMember>) repo.findAll();
 
 		int i = 0;
 		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
-		// startEndpt.sendBody(null);
+
+		startEndpt.sendBody(null);
 
 		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());

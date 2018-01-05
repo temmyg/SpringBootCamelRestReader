@@ -1,13 +1,14 @@
 spring:
   # Spring JDBC configuration
   datasource:
-    url:      jdbc:sqlserver://localhost:1433;databaseName=Blogs
+    url:      jdbc:sqlserver://localhost:1433;databaseName=Wellness
     username: sa
     password: Passw0rd
 
   jpa:
     #hibernate:
-      # To be updated in real production usage!
-      # ddl-auto: create-drop
+       #To be updated in real production usage!
+       #ddl-auto: create-drop
+
     show-sql: false
     database-platform: org.hibernate.dialect.SQLServer2012Dialect

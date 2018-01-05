@@ -9,4 +9,9 @@
             <value>James</value>
         </property>
     </bean>
+    <bean id="fooBean" class="com.springboot.camel.rest.restreader.FooConcrete">
+        <constructor-arg>
+            <value>49870</value>
+        </constructor-arg>
+    </bean>
 </beans>
