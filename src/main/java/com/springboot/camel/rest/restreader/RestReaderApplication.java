@@ -1,5 +1,7 @@
 package com.springboot.camel.rest.restreader;
 
+import com.springboot.camel.rest.restreader.daolayer.ClubMemberRepository;
+
 import com.springboot.camel.rest.restreader.model.ClubMember;
 import org.apache.camel.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.util.List;
 
 @SpringBootApplication
 public class RestReaderApplication implements CommandLineRunner {
@@ -16,6 +20,9 @@ public class RestReaderApplication implements CommandLineRunner {
 
 	@Autowired
 	CamelContext camelContext;
+
+	@Autowired
+	ClubMemberRepository repo;
 
 //	@Autowired
 //	ClubMember member;
@@ -27,8 +34,13 @@ public class RestReaderApplication implements CommandLineRunner {
 
 	public void run(String... args) {
 
+		// FooConcrete objFoo = new FooConcrete();
+
+		List<ClubMember> members = (List<ClubMember>) repo.findAll();
+
+		int i = 0;
 		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
-		 startEndpt.sendBody(null);
+		// startEndpt.sendBody(null);
 
 		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());
