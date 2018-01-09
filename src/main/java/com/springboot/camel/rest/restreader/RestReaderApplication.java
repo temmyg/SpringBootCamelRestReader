@@ -30,9 +30,12 @@ public class RestReaderApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(RestReaderApplication.class, args);
+
 	}
 
 	public void run(String... args) {
+
+	//	camelContext.getTypeConverterRegistry().addTypeConverter(ClubMember.class, String.class, new ClubMemberTypeConverter());
 
 		// FooConcrete objFoo = new FooConcrete();
 
@@ -41,7 +44,10 @@ public class RestReaderApplication implements CommandLineRunner {
 		int i = 0;
 		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
 
-		startEndpt.sendBody(null);
+		startEndpt.requestBody((Object) null, (Class<ClubMember>) ClubMember.class);
+
+		// not working with @FallbackConverter
+//		startEndpt.sendBody(null);
 
 		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());

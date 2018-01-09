@@ -6,6 +6,9 @@ import com.springboot.camel.rest.restreader.daolayer.ClubMemberRepository;
 import com.springboot.camel.rest.restreader.daolayer.DAManager;
 import com.springboot.camel.rest.restreader.model.ClubMember;
 import org.apache.camel.Body;
+import org.apache.camel.CamelContext;
+import org.apache.camel.Message;
+import org.apache.camel.spi.TypeConverterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,22 +24,35 @@ public class PersistenceBean {
     @Autowired
     private DAManager dam;
 
-    public void persistIncomingData(@Body String messageBody) {
+    @Autowired
+    private CamelContext camelContext;
+
+    public void persistIncomingData(@Body ClubMember member, Message message) {
         int i = 0;
-
-        Type listType = new TypeToken<List<ClubMember>>(){}.getType();
-        List<ClubMember> allMember = new Gson().fromJson(messageBody, listType);
-
         int affecteRows = 0;
-        try {
-            affecteRows = dam.saveMembers(allMember);
-        }
-        catch (Exception e){
-            System.out.println();
-            System.out.println(String.format("****** Some Error Happened: %1$s", e));
-            e.printStackTrace();
-            System.out.println();
-        }
+
+       // Object body = message.getBody(ClubMember.class);
+
+       // TypeConverterRegistry tcr = camelContext.getTypeConverterRegistry();
+
+       // camelContext.getTypeConverterRegistry().addTypeConverter(ClubMember.class, String.class, new ClubMemberTypeConverter());
+
+        // ClubMember mem = (ClubMember)message.getExchange().getContext().getTypeConverter().convertTo(ClubMember.class, "asfas");
+
+
+//
+//        Type listType = new TypeToken<List<ClubMember>>(){}.getType();
+//        //List<ClubMember> allMember = new Gson().fromJson(messageBody, listType);
+//
+//        try {
+//            affecteRows = dam.saveMembers(allMember);
+//        }
+//        catch (Exception e){
+//            System.out.println();
+//            System.out.println(String.format("****** Some Error Happened: %1$s", e));
+//            e.printStackTrace();
+//            System.out.println();
+//        }
 
         System.out.println(String.format("Total %1$d rows added.", affecteRows));
     }

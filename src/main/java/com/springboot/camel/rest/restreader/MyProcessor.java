@@ -29,10 +29,12 @@ public class MyProcessor implements Processor {
 
         inMessage.setHeader(Exchange.ACCEPT_CONTENT_TYPE, "application/json");
         // Specify the response class , cxfrs will use InputStream as the response object type
+
         /*
          * no need to set response class if you route it to a bean endpoint with a method paramter type string
          */
-//        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, List.class);
+        //inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, List.class);
+        // inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_CLASS, ClubMember.class);
 //        inMessage.setHeader(CxfConstants.CAMEL_CXF_RS_RESPONSE_GENERIC_TYPE, new ParameterizedCollectionType(ClubMember.class));
 
         /*
