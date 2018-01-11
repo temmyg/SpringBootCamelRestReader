@@ -1,7 +1,4 @@
-package com.springboot.camel.rest.restreader;
-
-import com.springboot.camel.rest.restreader.FooFilledArg;
-import com.springboot.camel.rest.restreader.model.ClubMember;
+package com.springboot.camel.rest.restreader.model;
 
 public class FooConcrete /*implements FooFilledArg*/ {
 

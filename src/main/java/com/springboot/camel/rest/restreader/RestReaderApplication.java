@@ -9,10 +9,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 
 import java.util.List;
 
 @SpringBootApplication
+@ImportResource("classpath:application-context.xml")
 public class RestReaderApplication implements CommandLineRunner {
 
 	@Produce(uri="direct:start")
@@ -24,8 +26,8 @@ public class RestReaderApplication implements CommandLineRunner {
 	@Autowired
 	ClubMemberRepository repo;
 
-//	@Autowired
-//	ClubMember member;
+	@Autowired
+	ClubMember member;
 
 	public static void main(String[] args) {
 

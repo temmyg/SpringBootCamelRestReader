@@ -1,4 +1,4 @@
-package com.springboot.camel.rest.restreader;
+package com.springboot.camel.rest.restreader.typeconverters;
 
 import com.springboot.camel.rest.restreader.model.ClubMember;
 import org.apache.camel.Converter;

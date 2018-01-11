@@ -1,4 +1,4 @@
-package com.springboot.camel.rest.restreader;
+package com.springboot.camel.rest.restreader.routedbeans;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

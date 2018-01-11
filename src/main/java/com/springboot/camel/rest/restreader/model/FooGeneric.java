@@ -1,4 +1,4 @@
-package com.springboot.camel.rest.restreader;
+package com.springboot.camel.rest.restreader.model;
 
 public interface FooGeneric<T> {
 
