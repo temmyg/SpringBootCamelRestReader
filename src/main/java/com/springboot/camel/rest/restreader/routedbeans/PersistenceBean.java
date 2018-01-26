@@ -7,6 +7,7 @@ import com.springboot.camel.rest.restreader.daolayer.DAManager;
 import com.springboot.camel.rest.restreader.model.ClubMember;
 import org.apache.camel.Body;
 import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.spi.TypeConverterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,23 @@ public class PersistenceBean {
     @Autowired
     private CamelContext camelContext;
 
+    public void processData(@Body String data, Exchange exchange) {
+        int i = 0;
+        int affecteRows = 0;
+        Type listType = new TypeToken<List<ClubMember>>(){}.getType();
+        List<ClubMember> allMember = new Gson().fromJson(data, listType);
+
+        try {
+            affecteRows = dam.saveMembers(allMember);
+        }
+        catch (Exception e){
+            System.out.println();
+            System.out.println(String.format("****** Some Error Happened: %1$s", e));
+            e.printStackTrace();
+            System.out.println();
+        }
+    }
+
     public void persistIncomingData(@Body ClubMember member, Message message) {
         int i = 0;
         int affecteRows = 0;
@@ -39,20 +57,6 @@ public class PersistenceBean {
 
         // ClubMember mem = (ClubMember)message.getExchange().getContext().getTypeConverter().convertTo(ClubMember.class, "asfas");
 
-
-//
-//        Type listType = new TypeToken<List<ClubMember>>(){}.getType();
-//        //List<ClubMember> allMember = new Gson().fromJson(messageBody, listType);
-//
-//        try {
-//            affecteRows = dam.saveMembers(allMember);
-//        }
-//        catch (Exception e){
-//            System.out.println();
-//            System.out.println(String.format("****** Some Error Happened: %1$s", e));
-//            e.printStackTrace();
-//            System.out.println();
-//        }
 
         System.out.println(String.format("Total %1$d rows added.", affecteRows));
     }

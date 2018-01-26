@@ -12,7 +12,7 @@ public class ClubMember {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long Id;
 
-    //@Column(name = "firstname")
+    @Column(name = "firstname")
     private String firstName;
 
     private String lastName;

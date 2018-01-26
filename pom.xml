@@ -78,6 +78,12 @@
 			<artifactId>camel-http-common</artifactId>
 			<version>2.20.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http4</artifactId>
+			<version>2.20.1</version>
+			<!-- use the same version as your Camel core version -->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jetty -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>

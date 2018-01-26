@@ -46,10 +46,11 @@ public class RestReaderApplication implements CommandLineRunner {
 		int i = 0;
 		//startEndpt.getDefaultEndpoint().createExchange().setPattern(ExchangePattern.InOut);
 
-		startEndpt.requestBody((Object) null, (Class<ClubMember>) ClubMember.class);
+		// option 2
+		//startEndpt.requestBody((Object) null, (Class<ClubMember>) ClubMember.class);
 
-		// not working with @FallbackConverter
-//		startEndpt.sendBody(null);
+		// option 1 but not working with @FallbackConverter
+		startEndpt.sendBody(null);
 
 		 // "cxfrs://http://localhost:8086/rest/clubmembers"
 		//Exchange out = camelContext.createProducerTemplate().send("cxfrs://http://localhost:8086", new MyProcessor());
